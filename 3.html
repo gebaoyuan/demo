@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>箭头函数匿名递归</title>
+</head>
+<body>
+<style  contenteditable="true">
+    style{
+        display: block;
+    }
+    *{
+        padding:0;
+        margin:0;
+    }
+</style>
+<div>
+    var add = (fn => num => fn(fn, num))((fn, num) => {
+    return num == 1 ? 1 : fn(fn, num - 1) + num;
+    });
+
+    var add = (fn => fn(fn))(
+    fn => num => num == 1 ? num : num + fn(fn)(num -1)
+    );
+</div>
+</body>
+
+</html>
+<script>
+    var add = (fn => num => fn(fn, num))((fn, num) => {
+        return num == 1 ? 1 : fn(fn, num - 1) + num;
+    });
+
+    var add = (fn => fn(fn))(
+        fn => num => num == 1 ? num : num + fn(fn)(num -1)
+    );
+</script>

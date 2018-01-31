@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>按钮背景特效</title>
+    <style>
+        .btn-anim {
+            z-index: 1;
+            position: relative;
+            margin: 100px auto;
+            width: 200px;
+            border-radius: 20px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            color: #fff;
+            background: #0e0080;
+            cursor: pointer;
+        }
+
+        .btn-anim:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            z-index: -1;
+            width: 40px;
+            height: 40px;
+            border-radius: 999px;
+            background-color: #F60;
+             opacity: 0
+        }
+
+        .btn-anim:hover {
+            color: #fff
+        }
+
+        .btn-anim:hover:after {
+            -webkit-animation: button-scale .1s both, button-width .2s .1s both;
+            animation: button-scale .1s both, button-width .2s .1s both;
+            -webkit-animation-timing-function: cubic-bezier(0.25, 0, .3, 1);
+            animation-timing-function: cubic-bezier(0.25, 0, .3, 1)
+        }
+
+        @-webkit-keyframes button-scale {
+            0% {
+                -webkit-transform: scale(0);
+                transform: scale(0);
+                opacity: 1
+            }
+
+            100% {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+                opacity: 1
+            }
+        }
+
+        @keyframes button-scale {
+            0% {
+                -webkit-transform: scale(0);
+                transform: scale(0);
+                opacity: 1
+            }
+
+            100% {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+                opacity: 1
+            }
+        }
+
+        @-webkit-keyframes button-width {
+            100% {
+                width: 100%
+            }
+        }
+
+        @keyframes button-width {
+            100% {
+                width: 100%
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="btn-anim">
+    确认发送
+</div>
+</body>
+</html>

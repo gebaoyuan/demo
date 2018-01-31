@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script>
+        var randomVersion = Math.random() + (+new Date);
+        if(!window.location.search){
+            location.search = '?' + randomVersion;
+        }
+        document.write(' <script src="index.js?' + randomVersion + '"><\/script>')
+    </script>
+    <title>demo列表</title>
+</head>
+<body>
+</body>
+<script>
+
+    function getDom(str, flag) {
+        return !flag ? document.querySelector(str) : document.querySelectorAll(str);
+    }
+
+    function creatDom(str) {
+        return document.createElement(str);
+    }
+
+    ;(function () {
+        console.log(123);
+        var body = getDom('body');
+        var fragment = document.createDocumentFragment();
+        for (var i = 0; i < demoList.length; i++) {
+            var obj = demoList[i];
+            var div = creatDom('div');
+            var a = creatDom('a');
+            a.setAttribute('href', obj.link + '?' + randomVersion);
+            a.setAttribute('target', '_block');
+            a.innerText = obj.title;
+            div.innerHTML = '第' + (i + 1) + '个 : ';
+            div.appendChild(a)
+            fragment.appendChild(div);
+
+        }
+        body.appendChild(fragment)
+    }());
+
+</script>
+</html>
